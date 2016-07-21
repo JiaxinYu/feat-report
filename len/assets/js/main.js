@@ -4,6 +4,13 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+
+var params = [];
+params["worldSpace"] = true;
+params["images"] = ["assets/data/bg_image.nii.gz", "assets/data/thresh_zstat1.nii.gz"];
+
+
+
 var main = (function($) { var _ = {
 
 	/**
@@ -433,26 +440,25 @@ var main = (function($) { var _ = {
 
 						// Create elements.
 	 						// s.$slide = $('<div class="slide"><div class="caption"></div><div class="image"></div></div>');
-	 						s.$slide = $('<div class="slide"><div class="caption"></div><div class="papaya" data-params="params"></div></div>');
-	 					
+	 			
+	 						s.$slide = $('<div class="slide"><div caption></div><div class="papaya" data-params="params"></div></div>');
+	 						
 
 	 					// Image.
-	 					// 	var params = [];
-							// params["worldSpace"] = true;
-							// params["images"] = ["assets/data/bg_image.nii.gz", "assets/data/thresh_zstat1.nii.gz"];
+	 						
  							// s.$slideImage = s.$slide.children('.image');
 
- 							// // Set background stuff.
-	 						// 	s.$slideImage
-		 					// 		.css('background-image', '')
-		 					// 		.css('background-position', ($thumbnail.data('position') || 'center'));
+ 							// Set background stuff.
+	 							// s.$slideImage
+		 						// 	.css('background-image', '')
+		 						// 	.css('background-position', ($thumbnail.data('position') || 'center'));
 
 						// Caption.
-							s.$slideCaption = s.$slide.find('.caption');
+							// s.$slideCaption = s.$slide.find('.caption');
 
-							// Move everything *except* the thumbnail itself to the caption.
-								$this.children().not($thumbnail)
-									.appendTo(s.$slideCaption);
+							// // Move everything *except* the thumbnail itself to the caption.
+							// 	$this.children().not($thumbnail)
+							// 		.appendTo(s.$slideCaption);
 
 					// Preload?
 						// if (_.settings.preload) {
@@ -583,56 +589,56 @@ var main = (function($) { var _ = {
 						newSlide.$slide.appendTo(_.$viewer);
 
 					// // New slide not yet loaded?
-					// 	if (!newSlide.loaded) {
+						if (!newSlide.loaded) {
 
-					// 		window.setTimeout(function() {
+							window.setTimeout(function() {
 
-					// 			// Mark as loading.
-					// 				newSlide.$slide.addClass('loading');
+								// Mark as loading.
+									newSlide.$slide.addClass('loading');
 
-					// 			// Wait for it to load.
-					// 				$('<img src="' + newSlide.url + '" />').on('load', function() {
-					// 				//window.setTimeout(function() {
+								// Wait for it to load.
+									$('<img src="' + newSlide.url + '" />').on('load', function() {
+									//window.setTimeout(function() {
 
-					// 					// Set background image.
-					// 						newSlide.$slideImage
-					// 							.css('background-image', 'url(' + newSlide.url + ')');
+										// Set background image.
+											// newSlide.$slideImage
+											// 	.css('background-image', 'url(' + newSlide.url + ')');
 
-					// 					// Mark as loaded.
-					// 						newSlide.loaded = true;
-					// 						newSlide.$slide.removeClass('loading');
+										// Mark as loaded.
+											newSlide.loaded = true;
+											newSlide.$slide.removeClass('loading');
 
-					// 					// Mark as active.
-					// 						newSlide.$slide.addClass('active');
+										// Mark as active.
+											newSlide.$slide.addClass('active');
 
-					// 					// Unlock.
-					// 						window.setTimeout(function() {
-					// 							_.locked = false;
-					// 						}, 100);
+										// Unlock.
+											window.setTimeout(function() {
+												_.locked = false;
+											}, 100);
 
-					// 				//}, 1000);
-					// 				});
+									//}, 1000);
+									});
 
-					// 		}, 100);
+							}, 100);
 
-					// 	}
+						}
 
-					// // Otherwise ...
-					// 	else {
+					// Otherwise ...
+						else {
 
-					// 		window.setTimeout(function() {
+							window.setTimeout(function() {
 
-					// 			// Mark as active.
-					// 				newSlide.$slide.addClass('active');
+								// Mark as active.
+									newSlide.$slide.addClass('active');
 
-					// 			// Unlock.
-					// 				window.setTimeout(function() {
-					// 					_.locked = false;
-					// 				}, 100);
+								// Unlock.
+									window.setTimeout(function() {
+										_.locked = false;
+									}, 100);
 
-					// 		}, 100);
+							}, 100);
 
-					// 	}
+						}
 
 				};
 
